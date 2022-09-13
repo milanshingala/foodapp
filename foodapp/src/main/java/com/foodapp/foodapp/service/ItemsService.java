@@ -14,71 +14,61 @@ import com.foodapp.foodapp.entity.Branch;
 import com.foodapp.foodapp.responseStructure.ResponseStructure;
 
 @Service
-public class BranchService {
+public class ItemsService {
 
     @Autowired
-    BranchDao branchDao;
+    ItemsDao itemsDao;
 
-    // save
-    public ResponseEntity<ResponseStructure<Branch>> saveBranch(Branch branch) {
-        ResponseStructure<Branch> responseStructure = new ResponseStructure<>();
-        responseStructure.setMessage("Saved Successfully");
+    @Autowired
+    StaffDao staffDao;
+    public ResponseEntity<ResponseStructure<Item>> saveitems(Item items){
+        ResponseStructure<Item> responseStructure = new ResponseStructure<>();
+        responseStructure.setMessage("Saved");
         responseStructure.setStatuscode(HttpStatus.CREATED.value());
-        responseStructure.setT(branchDao.saveBranch(branch));
-        return new ResponseEntity<ResponseStructure<Branch>>(responseStructure, HttpStatus.CREATED);
-    }
+        responseStructure.setT(itemsDao.saveItems(items));
+        return new ResponseEntity<ResponseStructure<Item>>(responseStructure,HttpStatus.CREATED);}
 
-    // getby
-    public ResponseEntity<ResponseStructure<Branch>> getby(int id) {
-        Optional<Branch> branch = branchDao.getby(id);
-        ResponseStructure<Branch> responseStructure = new ResponseStructure<>();
-        if (branch.isEmpty()) {
-            throw new IdNotFound();
-        } else {
-            responseStructure.setMessage("found successfully");
+    public ResponseEntity<ResponseStructure<Item>> getby(int id){
+        Optional<Item> items=itemsDao.getby(id);
+        ResponseStructure<Item> responseStructure=new ResponseStructure<>();
+        if(items.isEmpty()) {
+            responseStructure.setMessage("Id not found");
+            responseStructure.setStatuscode(HttpStatus.NOT_FOUND.value());
+            return new ResponseEntity<ResponseStructure<Item>>(responseStructure,HttpStatus.NOT_FOUND);}
+        else {
+            responseStructure.setMessage("Saved");
             responseStructure.setStatuscode(HttpStatus.OK.value());
-            responseStructure.setT(branch.get());
-            return new ResponseEntity<ResponseStructure<Branch>>(responseStructure, HttpStatus.OK);
-        }
-
-    }
-
-    // delete
-    public ResponseEntity<ResponseStructure<Branch>> delete(int id) {
-        Optional<Branch> branch = branchDao.getby(id);
-        ResponseStructure<Branch> responseStructure = new ResponseStructure<>();
-        if (branch.isEmpty()) {
-            throw new IdNotFound();
-        } else {
-            responseStructure.setMessage("deleted successfully");
+            responseStructure.setT(items.get());
+            return new ResponseEntity<ResponseStructure<Item>>(responseStructure,HttpStatus.OK);}}
+    public ResponseEntity<ResponseStructure<Item>> delete(int id){
+        Optional<Item> items=itemsDao.getby(id);
+        ResponseStructure<Item> responseStructure=new ResponseStructure<>();
+        if(items.isEmpty()) {
+            responseStructure.setMessage("Id not found");
+            responseStructure.setStatuscode(HttpStatus.NOT_FOUND.value());
+            return new ResponseEntity<ResponseStructure<Item>>(responseStructure,HttpStatus.NOT_FOUND);}
+        else {
+            responseStructure.setMessage("deleted");
             responseStructure.setStatuscode(HttpStatus.OK.value());
-            responseStructure.setT(branchDao.delete(id));
-            return new ResponseEntity<ResponseStructure<Branch>>(responseStructure, HttpStatus.OK);
-        }
+            responseStructure.setT(itemsDao.delete(id));
+            return new ResponseEntity<ResponseStructure<Item>>(responseStructure,HttpStatus.OK);}}
 
-    }
-
-    // update
-    public ResponseEntity<ResponseStructure<Branch>> update(Branch branch, int id) {
-        Optional<Branch> branch2 = branchDao.getby(id);
-        ResponseStructure<Branch> responseStructure = new ResponseStructure<>();
-        if (branch2.isEmpty()) {
-            throw new IdNotFound();
-        } else {
-            responseStructure.setMessage("updated successfully");
+    public ResponseEntity<ResponseStructure<Item>> update(Item items,int id){
+        Optional<Item> items2=itemsDao.getby(id);
+        ResponseStructure<Item> responseStructure=new ResponseStructure<>();
+        if(items2.isEmpty()) {
+            responseStructure.setMessage("Id not found");
+            responseStructure.setStatuscode(HttpStatus.NOT_FOUND.value());
+            return new ResponseEntity<ResponseStructure<Item>>(responseStructure,HttpStatus.NOT_FOUND);}
+        else {
+            responseStructure.setMessage("Updated");
             responseStructure.setStatuscode(HttpStatus.OK.value());
-            responseStructure.setT(branchDao.update(branch, id));
-            return new ResponseEntity<ResponseStructure<Branch>>(responseStructure, HttpStatus.OK);
-        }
-    }
-
-    // getall
-    public ResponseEntity<ResponseStructure<List<Branch>>> getall() {
-        ResponseStructure<List<Branch>> responseStructure = new ResponseStructure<List<Branch>>();
-        responseStructure.setMessage("found all successfully");
+            responseStructure.setT(itemsDao.update(items, id));
+            return new ResponseEntity<ResponseStructure<Item>>(responseStructure,HttpStatus.OK);}}
+    public ResponseEntity<ResponseStructure<List<Item>>> getall(){
+        ResponseStructure<List<Item>> responseStructure=new ResponseStructure<List<Item>>();
+        responseStructure.setMessage("Found");
         responseStructure.setStatuscode(HttpStatus.OK.value());
-        responseStructure.setT(branchDao.getall());
-        return new ResponseEntity<ResponseStructure<List<Branch>>>(responseStructure, HttpStatus.OK);
-    }
-
+        responseStructure.setT(itemsDao.getall());
+        return new ResponseEntity<ResponseStructure<List<Item>>>(responseStructure, HttpStatus.OK);}
 }
