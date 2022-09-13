@@ -84,7 +84,8 @@ public class AdminService {
 
 
     public Admin findbyEmailnPassword(Admin admin) throws Exception {
-    	return adminDao.findbyEmailnPassword(admin);}}
+    	return adminDao.findbyEmailnPassword(admin);
+	}}
 
 
 
