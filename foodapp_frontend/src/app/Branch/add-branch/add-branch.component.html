@@ -1,0 +1,24 @@
+<div class="container">
+    <h3>Fill the Branch Details</h3>
+    <form #addbranch="ngForm" (ngSubmit)="addBranch(addbranch)">
+      <div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="name" placeholder="Branch Name" name="name" #name="ngModel" required
+            [(ngModel)]="branch.name">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="address" placeholder="Branch Address" name="address"
+            #address="ngModel" required [(ngModel)]="branch.address">
+        </div>
+        <div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="phone" placeholder="Bracnh Phone" name="phone" #phone="ngModel"
+              required [(ngModel)]="branch.phone">
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" id="admin.id" placeholder="Admin ID" name="admin.id"
+              #admin.id="ngModel" required [(ngModel)]="branch.admin.id">
+  
+            <button type="submit" class="btn btn-primary">Add Branch</button>
+            <form></form>
+          </div>

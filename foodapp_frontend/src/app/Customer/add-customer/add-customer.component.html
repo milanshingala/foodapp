@@ -1,0 +1,56 @@
+<div class="container">
+    <h3>Add Item</h3>
+    <form #addData="ngForm" (ngSubmit)="addCustomer(addData)">
+        <div class="form-group">
+          <input 
+          type="text" 
+          class="form-control" 
+          ngModel
+          id="email" 
+          name="email"
+          #email="ngModel"
+          placeholder="Enter the email"
+          >
+          <input 
+          type="text" 
+          class="form-control" 
+          ngModel
+          id="t_cost" 
+          name="t_cost"
+          placeholder="Enter the total cost"
+          #t_cost="ngModel"
+          >
+          <input 
+          type="text" 
+          class="form-control" 
+          ngModel
+          id="gst" 
+          name="gst"
+          placeholder="Enter the gst"
+          #gst="ngModel"
+          >
+          <input 
+          type="text" 
+          class="form-control" 
+          ngModel
+          id="serviceCost" 
+          name="serviceCost"
+          placeholder="Enter the Service Cost"
+          #serviceCost="ngModel"
+          >
+          <input 
+          type="text" 
+          class="form-control" 
+          ngModel
+          id="t_cost" 
+          name="t_cost"
+          placeholder="Enter the total cost"
+          #t_cost="ngModel"
+          >
+       
+        </div>
+      
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
