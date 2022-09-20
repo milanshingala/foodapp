@@ -1,0 +1,84 @@
+
+<div class="container">
+    <h3>Update Menu</h3>
+    <form #update="ngForm" (ngSubmit)="onupdatemenu(update)">
+      <div>
+        <div class="form-group">
+        <input 
+          type="text" 
+          class="form-control" 
+          id="name" 
+          placeholder="Enter menu name"
+          name="name"
+          #name="ngModel"
+          ngModel
+          [(ngModel)]="menu.name"
+          >
+        </div>
+        <div class="form-group">
+            <input 
+              type="text" 
+              class="form-control" 
+              id="manager.id" 
+              placeholder="Enter manager id"
+              name="manager.id"
+              #manager.id="ngModel"
+              ngModel
+              [(ngModel)]="menu.manager.id"
+              >
+        </div>
+        <div class="form-group">
+            <input 
+              type="text" 
+              class="form-control" 
+              id="manager.name" 
+              placeholder="Enter manager name"
+              name="manager.name"
+              #manager.name="ngModel"
+              ngModel
+              [(ngModel)]="menu.manager.name"
+              >
+        </div>
+        <div class="form-group">
+            <input 
+              type="email" 
+              class="form-control" 
+              id="email" 
+              placeholder="Enter manager email"
+              name="email"
+              #email="ngModel"
+              ngModel
+              [(ngModel)]="menu.manager.email"
+              >
+        </div>
+        <div class="form-group">
+            <input 
+              type="password" 
+              class="form-control" 
+              id="password" 
+              placeholder="Enter manager password"
+              name="password"
+              #password="ngModel"
+              ngModel
+              [(ngModel)]="menu.manager.password"
+              >
+        </div>
+        <div class="form-group">
+            <input 
+              type="text" 
+              class="form-control" 
+              id="role" 
+              placeholder="Enter manager role"
+              name="role"
+              #role="ngModel"
+              ngModel
+              [(ngModel)]="menu.manager.role"
+              >
+        </div>
+        
+        
+    
+        <button type="submit" class="btn btn-primary">Update</button>
+   
+    </div>
+    
