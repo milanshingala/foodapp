@@ -1,0 +1,33 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Order ID</th>
+        <th scope="col">Status</th>
+        <th scope="col">Order_Time</th>
+        <th scope="col">Delivered_Time</th>
+        <th scope="col">Customer_Name</th>
+        <th scope="col">Customer_Number</th>
+        <th scope="col">Price</th>
+        <th scope="col">Staff_ID</th>
+        <th scope="col">Upadte</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Bill</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of result.t">
+        <td>{{r.id}}</td>
+        <td>{{r.status}}</td>
+        <td>{{r.orderCreatedTime}}</td>
+        <td>{{r.orderDeliveryTime}}</td>
+        <td>{{r.customerName}}</td>
+        <td>{{r.contactNumber}}</td>
+        <td>{{r.totalPrice}}</td>
+        <td>{{r.staff.id}}</td>
+        <td><button type="button" class="btn btn-primary" [routerLink]="['/updateorders/',r.id]" [disabled]="loginstaffID!=r.staff.id">Update</button></td>
+        <td><button type="button" class="btn btn-primary" (click)="delete(r.id)" [disabled]="loginstaffID!=r.staff.id">Delete</button></td>   
+        <td><button type="button" class="btn btn-primary" [routerLink]="['/bill/',r.id]" [disabled]="loginstaffID!=r.staff.id">Bill</button></td>
+   
+      </tr>
+    </tbody>
+  </table>

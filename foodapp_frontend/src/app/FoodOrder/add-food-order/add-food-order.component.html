@@ -1,0 +1,88 @@
+<div class="container">
+  <h3>Enter new Order Details</h3>
+  <form #addData="ngForm" (ngSubmit)="addFoodOrder(addData)">
+    <div>
+      <div class="form-group">
+          <input 
+            type="text" 
+            class="form-control" 
+            id="status" 
+            placeholder="Order Status"
+            name="status"
+            #status="ngModel"
+            required
+            [(ngModel)]="order.status"
+            >
+      </div>
+      <div class="form-group">
+            <input 
+            type="text" 
+            class="form-control" 
+            id="otime" 
+            placeholder="Order Time"
+            name="otime"
+            #otime="ngModel"
+            required
+            [(ngModel)]="order.orderCreatedTime"
+            >
+      </div>
+      <div class="form-group">
+            <input 
+            type="text" 
+            class="form-control" 
+            id="dtime" 
+            placeholder="Deliver Time"
+            name="dtime"
+            #dtime="ngModel"
+            required
+            [(ngModel)]="order.orderDeliveryTime"
+            >
+      </div>
+      <div class="form-group">
+            <input 
+            type="text" 
+            class="form-control" 
+            id="c_name" 
+            placeholder="Customer Name"
+            name="c_name"
+            #c_name="ngModel"
+            required
+            [(ngModel)]="order.customerName"
+            >
+      </div>
+      <div class="form-group">
+            <input 
+            type="text" 
+            class="form-control" 
+            id="c_number" 
+            placeholder="Customer Number"
+            name="c_number"
+            #c_number="ngModel"
+            required
+            [(ngModel)]="order.contactNumber"
+            >
+      </div>
+      <div class="form-group">
+            <input 
+            type="number" 
+            class="form-control" 
+            id="food_price" 
+            placeholder="Food Price"
+            name="food_price"
+            #food_price="ngModel"
+            required
+            [(ngModel)]="order.totalPrice"
+            >
+      </div>
+      <div class="form-group">
+            <input 
+            type="number" 
+            class="form-control" 
+            id="staff_id" 
+            placeholder="Staff ID"
+            name="staff_id"
+            #staff_id="ngModel"
+            required
+            [(ngModel)]="order.staff.id"
+            >
+  <button type="submit" class="btn btn-primary">Add Food Order</button>

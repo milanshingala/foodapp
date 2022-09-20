@@ -1,0 +1,32 @@
+
+<div class="container">
+    <h3>Update Orders</h3>
+    <form #update="ngForm" (ngSubmit)="billData(update)">
+        <div class="form-group">
+            <input 
+              type="number" 
+              class="form-control" 
+              id="id" 
+              placeholder="Enter id"
+              name="id"
+              #id="ngModel"
+              ngModel
+              [(ngModel)]="bill.id"
+              >
+        </div>
+        <div class="form-group">
+            <input 
+              type="email" 
+              class="form-control" 
+              id="email" 
+              placeholder="Enter Customer Email"
+              name="email"
+              #email="ngModel"
+              ngModel
+              [(ngModel)]="bill.email"
+              >
+        </div>
+        
+        
+    
+        <button type="submit" class="btn btn-primary">Send Bill</button>
