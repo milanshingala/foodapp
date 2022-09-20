@@ -1,0 +1,30 @@
+<div class="container">
+    <h3>Staff Login Portal</h3>
+    <form #login="ngForm" (ngSubmit)="loginStaff(login)">
+        <div class="form-group">
+            <input 
+              type="email" 
+              class="form-control" 
+              id="email" 
+              placeholder="Email"
+              name="email"
+              #email="ngModel"
+              [(ngModel)]="admin.email"
+              >
+            </div>
+            <div class="form-group">
+              <input 
+                type="password" 
+                class="form-control" 
+                id="password" 
+                placeholder="Password"
+                name="password"
+                #password="ngModel"
+                [(ngModel)]="admin.password"
+                >
+              </div>
+    
+        <button type="submit" class="btn btn-primary" >Login</button>
+      </form>
+    </div>
+    
